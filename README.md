@@ -19,7 +19,7 @@ TODO
 We are currently working on bundling alot of the different components of the OpenSHR together to make it simpler to install. Right now these are the steps you have to go through to get it up and running.
 
 1. To install the OpenSHR you will need to fisrt install OpenMRS v1.11.x. You can find detail about how to do that [here](https://wiki.openmrs.org/display/docs/Installing+OpenMRS).
-2. Once you get to the OpenMRS configuration web app, you will need to first load in a pre-cofigured OpenMRS database before continuing. The database is included in this repository and you can load in using the following command: `echo "create database openmrs" | mysql -u root -p && mysql openmrs -u root -p < openshr-dump-clean-full-ciel-no-caching-gp-optimisations-05-06-15.sql`. This will setup the database for you with some sane defaults. This is what will be setup for you in this database dump:
+2. Once you get to the OpenMRS configuration web app, you will need to first load in a pre-cofigured OpenMRS database before continuing. The database is included in this repository and you can load in using the following command: `mysql -u root -p -e "create database openmrs" && mysql openmrs -u root -p < openshr-dump-clean-full-ciel-no-caching-gp-optimisations-05-06-15.sql`. This will setup the database for you with some sane defaults. This is what will be setup for you in this database dump:
   * The OpenMRS database strucutre with no default data
   * The CIEL dictionary
   * Sane default for the SHR module global properties (Clear Epid, EcId root global properties and change update existing gp to true so that we can use the same document over and over for testing)
@@ -32,6 +32,17 @@ We are currently working on bundling alot of the different components of the Ope
 4. Ensure there are no errors in the logs when loading concepts via liquibase when the cda-handler module starts, if there are you may need to start again...
 5. The SHR should be up and running, you will now need to set some global properties to get it to function correctly:
   * In the XDS-repository module settings, set the ws username and password to an admin user name and password
+
+## Repositories that make up the OpenSHR project
+
+The source code repositories the make up the OpenSHR project can be found here:
+
+* Infrastructure code (puppet and vagrant) that helps you get an environment setup - https://github.com/jembi/openmrs-shr-infrastructure
+* Module that exposes the XDS.b interface - https://github.com/jembi/openmrs-module-shr-xds-b-repository
+* Module that allows handlers to register support for different type of docuemnts - https://github.com/jembi/openmrs-module-shr-contenthandler
+* Module that supports handling of certain CDA documents - https://github.com/jembi/openmrs-module-shr-cdahandler
+* Module that support on-demand documents - https://github.com/jembi/openmrs-module-shr-odd
+* Module that provides ATNA audtit logging support - https://github.com/jembi/openmrs-module-shr-atna
 
 ## Performance tweaks
 
