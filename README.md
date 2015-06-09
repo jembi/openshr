@@ -24,11 +24,11 @@ We are currently working on bundling alot of the different components of the Ope
   * The CIEL dictionary
   * Sane default for the SHR module global properties (Clear Epid, EcId root global properties and change update existing gp to true so that we can use the same document over and over for testing)
   * Global properties that improve performance
-3. Load the SHR openmrs modules:
-  * [shr-atna-0.5.0.omod](https://github.com/jembi/openmrs-module-shr-atna/releases)
-  * [shr-cdahandler-0.6.0.omod](https://github.com/jembi/openmrs-module-shr-cdahandler/releases)
-  * [shr-contenthandler-2.2.0.omod](https://github.com/jembi/openmrs-module-shr-contenthandler/releases)
-  * [xds-b-repository-0.4.5.omod](https://github.com/jembi/openmrs-module-shr-xds-b-repository/releases)
+3. Load the SHR openmrs modules in the following order:
+  1. [shr-atna-0.5.0.omod](https://github.com/jembi/openmrs-module-shr-atna/releases)
+  2. [shr-contenthandler-2.2.0.omod](https://github.com/jembi/openmrs-module-shr-contenthandler/releases)
+  3. [xds-b-repository-0.4.5.omod](https://github.com/jembi/openmrs-module-shr-xds-b-repository/releases)
+  4. [shr-cdahandler-0.6.0.omod](https://github.com/jembi/openmrs-module-shr-cdahandler/releases)
 4. Ensure there are no errors in the logs when loading concepts via liquibase when the cda-handler module starts, if there are you may need to start again...
 5. The SHR should be up and running, you will now need to set some global properties to get it to function correctly:
   * In the XDS-repository module settings, set the ws username and password to an admin user name and password
