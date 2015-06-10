@@ -36,7 +36,7 @@ We are currently working on bundling a lot of the different components of the Op
   3. [xds-b-repository-0.4.5.omod](https://github.com/jembi/openmrs-module-shr-xds-b-repository/releases)
   4. [shr-cdahandler-0.6.0.omod](https://github.com/jembi/openmrs-module-shr-cdahandler/releases)
 4. Ensure there are no errors in the logs when loading concepts via liquibase when the cda-handler module starts, if there are you may need to start again...
-5. The SHR should be up and running. The default login is set to `admin` with password `OpenMRS123`. You will now need to set some global properties to get the OpenSHR to function correctly:
+5. The SHR should be up and running. The default login is set to `admin` with password `OpenSHR#123`. You will now need to set some global properties to get the OpenSHR to function correctly:
   * In the XDS-repository module settings, set the ws username and password to an admin user name and password
 
 ## Repositories that make up the OpenSHR project
