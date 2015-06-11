@@ -79,8 +79,9 @@ https://www.percona.com/blog/2007/11/01/innodb-performance-optimization-basics/
 
 ### Next steps for performance
 
-* Try get rid of the CIEL concepts we don't need and see if that makes a difference.
+* ~~Try get rid of the CIEL concepts we don't need and see if that makes a difference~~ - no difference
 * Try one big transaction
-* Try MariaDB
+* ~~Try MariaDB~~ - no difference
+* ~~Try MariaDB using the TokuDB engine~~ - no difference
 * Build something better
 * Eventually consistent is ok
