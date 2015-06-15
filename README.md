@@ -85,3 +85,4 @@ https://www.percona.com/blog/2007/11/01/innodb-performance-optimization-basics/
 * ~~Try MariaDB using the TokuDB engine~~ - no difference
 * Build something better
 * Eventually consistent is ok
+* ~~Try upgrade mysql to v5.6~~ - no difference (actually seems slightly worse...)
