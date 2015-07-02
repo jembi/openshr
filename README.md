@@ -10,6 +10,15 @@ Some of the important features include:
 * Supports on-demand documents
 * Extensible CDA documents support
 
+## Setting up the OpenSHR on Ubuntu from a PPA (14.04 Trusty)
+*:warning: PPA releases are still under active development. Versions of the OpenSHR available there should be considered unstable*
+```
+sudo add-apt-repository ppa:webupd8team/java
+sudo add-apt-repository ppa:6-hannes/openshr
+sudo apt-get update
+sudo apt-get install openshr
+```
+
 ## Setting up the OpenSHR with vagrant and puppet
 
 See the https://github.com/jembi/openmrs-shr-infrastructure repository. Getting up and running is really simple:
