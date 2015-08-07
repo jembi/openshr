@@ -63,6 +63,7 @@ We are currently working on bundling a lot of the different components of the Op
 4. Ensure there are no errors in the logs when loading concepts via liquibase when the cda-handler module starts, if there are you may need to start again...
 5. The SHR should be up and running. The default login is set to `admin` with password `OpenSHR#123`. You will now need to set some global properties to get the OpenSHR to function correctly:
   * In the XDS-repository module settings, set the ws username and password to an admin user name and password
+6. You will then need to install OpenXDS using the Jembi OpenXDS fork: [https://github.com/jembi/openxds/](https://github.com/jembi/openxds/)
 
 ## Repositories that make up the OpenSHR project
 
