@@ -20,14 +20,14 @@ sudo apt-get install openshr
 ```
 
 After the installation is complete the following endpoints will be available:
- * XDS.b repository: http://localhost:8080/openmrs/ms/xdsrepository
- * XDS.b registry: http://localhost:8010/axis2/services/xdsregistryb
+ * XDS.b repository: [http://localhost:8080/openmrs/ms/xdsrepository](http://localhost:8080/openmrs/ms/xdsrepository)
+ * XDS.b registry: [http://localhost:8010/axis2/services/xdsregistryb](http://localhost:8010/axis2/services/xdsregistryb)
  * XDS.b registry pid feed: localhost:3602
 
-Also, the OpenMRS user inferface which can be used to configure the XDS.b repository can be found here at http://localhost:8080/openmrs The login is admin:OpenSHR#123 (change this on a production system!)
+Also, the OpenMRS user inferface which can be used to configure the XDS.b repository can be found here at [http://localhost:8080/openmrs](http://localhost:8080/openmrs) The login is admin:OpenSHR#123 (change this on a production system!)
 
 To configure the OpenSHR, here are the places you may want to look:
- * For the XDS.b repository, look for the settings labled 'SHR' here: http://localhost:8080/openmrs/admin/maintenance/settings.list
+ * For the XDS.b repository, look for the settings labled 'SHR' here: [http://localhost:8080/openmrs/admin/maintenance/settings.list](http://localhost:8080/openmrs/admin/maintenance/settings.list)
  * For the XDS.b repository, you will need to edit the files under `/usr/share/opennshr/openxds/conf/`. In particular you may want to edit the supported codes in `XdsCodes.xml` and the sourceIds and identity domain in `IheActors.xml`.
  
 To stop, start or restart the registry and reppository services use:
