@@ -11,13 +11,28 @@ Some of the important features include:
 * Extensible CDA documents support
 
 ## Setting up the OpenSHR on Ubuntu from a PPA (14.04 Trusty)
-*:warning: PPA releases are still under active development. Versions of the OpenSHR available there should be considered unstable*
+
 ```
 sudo add-apt-repository ppa:webupd8team/java
-sudo add-apt-repository ppa:6-hannes/openshr
+sudo add-apt-repository ppa:openhie/release
 sudo apt-get update
 sudo apt-get install openshr
 ```
+
+After the installation is complete the following endpoints will be available:
+ * XDS.b repository: http://localhost:8080/openmrs/ms/xdsrepository
+ * XDS.b registry: http://localhost:8010/axis2/services/xdsregistryb
+ * XDS.b registry pid feed: localhost:3602
+
+Also, the OpenMRS user inferface which can be used to configure the XDS.b repository can be found here at http://localhost:8080/openmrs The login is admin:OpenSHR#123 (change this on a production system!)
+
+To configure the OpenSHR, here are the places you may want to look:
+ * For the XDS.b repository, look for the settings labled 'SHR' here: http://localhost:8080/openmrs/admin/maintenance/settings.list
+ * For the XDS.b repository, you will need to edit the files under `/usr/share/opennshr/openxds/conf/`. In particular you may want to edit the supported codes in `XdsCodes.xml` and the sourceIds and identity domain in `IheActors.xml`.
+ 
+To stop, start or restart the registry and reppository services use:
+ * Registry: `sudo service openshr-reg [start|stop|restart]`
+ * Repository: `sudo service openshr-rep [start|stop|restart]`
 
 ## Setting up the OpenSHR with vagrant and puppet
 
@@ -34,16 +49,17 @@ After launching, the SHR will be available on `http://localhost:8082/openmrs`. T
 We are currently working on bundling a lot of the different components of the OpenSHR together to make it simpler to install. Right now these are the steps you have to go through to get it up and running.
 
 1. To install the OpenSHR you will need to first install OpenMRS v1.11.x. You can find details about how to do that [here](https://wiki.openmrs.org/display/docs/Installing+OpenMRS).
-2. Once you get to the OpenMRS configuration web app, you will need to first load in a pre-configured OpenMRS database before continuing. The database is included in this repository and you can load it using the following command: `mysql -u root -p -e "create database openmrs" && mysql openmrs -u root -p < openshr-dump-clean-full-ciel-no-caching-gp-optimisations-05-06-15.sql`. This will setup the database for you with some sane defaults. This is what will be setup for you in this database dump:
+2. Once you get to the OpenMRS configuration web app, you will need to first load in a pre-configured OpenMRS database before continuing. The database dump can be found at https://s3.amazonaws.com/openshr/openmrs.sql.gz and you can load it using the following command: `mysql -u root -p -e "create database openmrs" && mysql openmrs -u root -p < openmrs.sql`. This will setup the database for you with some sane defaults. This is what will be setup for you in this database dump:
   * The OpenMRS database structure with no default data
   * The CIEL dictionary
-  * Sane defaults for the SHR module global properties (Clear EPID, ECID root global properties and `change update existing` GP to true so that we can use the same document over and over for testing)
+  * Sane defaults for the SHR module global properties (Set EPID, ECID root global properties and `change update existing` GP to true so that we can use the same document over and over for testing)
   * Global properties that improve performance
 3. Load the SHR openmrs modules in the following order:
-  1. [shr-atna-0.5.0.omod](https://github.com/jembi/openmrs-module-shr-atna/releases)
-  2. [shr-contenthandler-2.2.0.omod](https://github.com/jembi/openmrs-module-shr-contenthandler/releases)
-  3. [xds-b-repository-0.4.5.omod](https://github.com/jembi/openmrs-module-shr-xds-b-repository/releases)
-  4. [shr-cdahandler-0.6.0.omod](https://github.com/jembi/openmrs-module-shr-cdahandler/releases)
+  1. [shr-atna-x.x.x.omod](https://github.com/jembi/openmrs-module-shr-atna/releases)
+  2. [shr-contenthandler-x.x.x.omod](https://github.com/jembi/openmrs-module-shr-contenthandler/releases)
+  3. [xds-b-repository-x.x.x.omod](https://github.com/jembi/openmrs-module-shr-xds-b-repository/releases)
+  4. [shr-cdahandler-x.x.x.omod](https://github.com/jembi/openmrs-module-shr-cdahandler/releases)
+  5. [shr-odd-x.x.x.omod](https://github.com/jembi/openmrs-module-shr-odd/releases)
 4. Ensure there are no errors in the logs when loading concepts via liquibase when the cda-handler module starts, if there are you may need to start again...
 5. The SHR should be up and running. The default login is set to `admin` with password `OpenSHR#123`. You will now need to set some global properties to get the OpenSHR to function correctly:
   * In the XDS-repository module settings, set the ws username and password to an admin user name and password
