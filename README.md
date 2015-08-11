@@ -28,7 +28,7 @@ Also, the OpenMRS user inferface which can be used to configure the XDS.b reposi
 
 To configure the OpenSHR, here are the places you may want to look:
  * For the XDS.b repository, look for the settings labled 'SHR' here: [http://localhost:8080/openmrs/admin/maintenance/settings.list](http://localhost:8080/openmrs/admin/maintenance/settings.list)
- * For the XDS.b repository, you will need to edit the files under `/usr/share/opennshr/openxds/conf/`. In particular you may want to edit the supported codes in `XdsCodes.xml` and the sourceIds and identity domain in `IheActors.xml`.
+ * For the XDS.b repository, you will need to edit the files under `/usr/share/opennshr/openxds/conf/`. In particular you may want to edit the supported codes in `XdsCodes.xml` and the sourceIds and identity domain in `XdsRegistryConnections.xml`.
  
 To stop, start or restart the registry and reppository services use:
  * Registry: `sudo service openshr-reg [start|stop|restart]`
