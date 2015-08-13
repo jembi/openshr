@@ -70,11 +70,12 @@ We are currently working on bundling a lot of the different components of the Op
 The source code repositories that make up the OpenSHR project can be found here:
 
 * Infrastructure code (puppet and vagrant) that helps you get an environment setup - https://github.com/jembi/openmrs-shr-infrastructure
-* Module that exposes the XDS.b interface - https://github.com/jembi/openmrs-module-shr-xds-b-repository
-* Module that allows handlers to register support for different types of docuemnts - https://github.com/jembi/openmrs-module-shr-contenthandler
-* Module that supports handling of certain CDA documents - https://github.com/jembi/openmrs-module-shr-cdahandler
-* Module that supports on-demand documents - https://github.com/jembi/openmrs-module-shr-odd
-* Module that provides ATNA audit logging support - https://github.com/jembi/openmrs-module-shr-atna
+* OpenMRS Module that exposes the XDS.b interface - https://github.com/jembi/openmrs-module-shr-xds-b-repository
+* OpenMRS Module that allows handlers to register support for different types of docuemnts - https://github.com/jembi/openmrs-module-shr-contenthandler
+* OpenMRS Module that supports handling of certain CDA documents - https://github.com/jembi/openmrs-module-shr-cdahandler
+* OpenMRS Module that supports on-demand documents - https://github.com/jembi/openmrs-module-shr-odd
+* OpenMRS Module that provides ATNA audit logging support - https://github.com/jembi/openmrs-module-shr-atna
+* Jembi OpenXDS fork that provides an ODD compliant XDS.b registry - https://github.com/jembi/openxds
 
 ## Performance tweaks
 
