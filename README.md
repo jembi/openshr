@@ -77,6 +77,12 @@ The source code repositories that make up the OpenSHR project can be found here:
 * OpenMRS Module that provides ATNA audit logging support - https://github.com/jembi/openmrs-module-shr-atna
 * Jembi OpenXDS fork that provides an ODD compliant XDS.b registry - https://github.com/jembi/openxds
 
+## CDA implementation documentation
+
+For a comprehensive explanation of how CDA document are submitted and processed by the SHR please see [the documentation here](Clinical Document Architecture Support for OpenSHR.pdf).
+
+There is also a spreadsheet describing terminology references, templates (document, section and entry). Those in green are level 3 import, those in orange are level 2 only. [See here](Templates and RMIMs.xlsx).
+
 ## Performance tweaks
 
 To get the best performance out of the OpenSHR you may have to make some adjustments to your installation. A list of these can be found here. Many of the global properties are already applied when using the database dump above.
